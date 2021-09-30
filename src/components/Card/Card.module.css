@@ -1,0 +1,25 @@
+.card {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #091e4240;
+  padding: 6px 8px;
+  cursor:pointer;
+  font-family: "Montserrat Regular";
+}
+
+.card:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.card:last-of-type {
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  background-color: #f4f5f7;
+}
+
+.card:active {
+  cursor: grabbing;
+  /*transform: rotate(5deg);*/
+}
