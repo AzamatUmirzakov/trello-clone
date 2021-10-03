@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import AddItem from "../AddItem/AddItem";
 import styles from './Board.module.css'
 import {DragDropContext} from "react-beautiful-dnd";
+import reorderCard from "../../thunks/reorder-card";
 
 
 const Board = ({board}) => {
@@ -14,7 +15,12 @@ const Board = ({board}) => {
   }
 
   const handleDragEnd = (result) => {
+    console.log(result);
+    const {source, destination} = result;
+    if (!destination) return;
 
+    dispatch(reorderCard(source, destination))
+    // console.log(result);
   }
 
   return (

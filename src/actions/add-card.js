@@ -1,8 +1,12 @@
-export const ADD_CARD = "ADD-CART";
+export const ADD_CARD = "ADD-CARD";
 
-const addCardActionCreator = (card) => ({
+const addCard = (listID, card, index) => ({
   type: ADD_CARD,
-  payload: card,
+  payload: {
+    listID,
+    card,
+    index
+  },
 })
 
-export default addCardActionCreator;
+export default addCard;
