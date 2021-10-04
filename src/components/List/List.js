@@ -4,7 +4,6 @@ import AddItem from "../AddItem/AddItem";
 import addCard from "../../actions/add-card";
 import {useDispatch} from "react-redux";
 import {Droppable} from "react-beautiful-dnd";
-import deleteCard from "../../actions/delete-card";
 import deleteList from "../../actions/delete-list";
 import close from '../../assets/images/close.svg';
 
