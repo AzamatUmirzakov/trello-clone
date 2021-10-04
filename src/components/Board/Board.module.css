@@ -11,6 +11,8 @@
   box-sizing: border-box;
   background: darkviolet;
   margin-bottom: 50px;
+  font-family: "Montserrat Regular";
+  font-size: 20px;
 }
 
 .board > main {

@@ -25,6 +25,31 @@
 .list header {
   margin-bottom: 10px;
   font-family: "Montserrat Semibold";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list header button {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 3px;
+  transition: background 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.list header button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.list header button img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .addItemButton {

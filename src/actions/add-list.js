@@ -1,8 +1,12 @@
 export const ADD_LIST = 'ADD_LIST';
 
-const addListActionCreator = (title) => ({
+const addListActionCreator = (title, index, cards) => ({
   type: ADD_LIST,
-  payload: title,
+  payload: {
+    title,
+    index,
+    cards
+  },
 })
 
 export default addListActionCreator;

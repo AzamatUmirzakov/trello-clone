@@ -3,11 +3,12 @@ import selectBoard from "../selectors/select-board";
 import {ADD_LIST} from "../actions/add-list";
 import {ADD_CARD} from "../actions/add-card";
 import {DELETE_CARD} from "../actions/delete-card";
+import {DELETE_LIST} from "../actions/delete-list";
 import selectList from "../selectors/select-list";
 
 const initialState = {
   board: {
-    title: "Demo board",
+    title: "If I'm not too lazy, support for boards will come soon :)",
     id: 'iwer0234h',
     backgroundURL: 'https://img5.goodfon.com/wallpaper/nbig/9/23/synth-retrowave-synthwave-fon-new-retro-wave-sintveiv-ret-16.jpg',
     dragging: null,
@@ -46,11 +47,11 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_LIST: {
       const newLists = Array.from(selectBoard(state).lists);
-      newLists.push({
+      newLists.splice(action.payload.index, 0, {
         id: String(randomInteger(0, 10000)),
-        title: action.payload,
-        cards: [],
-      });
+        title: action.payload.title,
+        cards: [...action.payload.cards],
+      })
       return {
         board: {
           ...state.board,
@@ -95,14 +96,28 @@ const reducer = (state = initialState, action) => {
         cards: newCards,
       }
       let newLists = [...lists];
-      debugger;
       newLists.splice(listIndex, 1, newList);
-      console.log(newLists);
       return {
         board: {
           ...state.board,
           lists: newLists,
         }
+      }
+    }
+    case DELETE_LIST: {
+      let newBoard = {
+        ...selectBoard(state)
+      };
+      let newLists = newBoard.lists;
+      const index = newLists.findIndex((list) => list.id === action.payload);
+      newLists.splice(index, 1);
+      newBoard = {
+        ...newBoard,
+        lists: newLists,
+      };
+      return {
+        ...state,
+        board: newBoard
       }
     }
 
